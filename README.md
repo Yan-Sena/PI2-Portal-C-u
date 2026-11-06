@@ -20,8 +20,7 @@ source .venv/bin/activate        # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 python app.py                    # http://localhost:5000
 ```
-Código de acesso da secretaria (local): `troque-este-token`
-(defina outro com a variável `ADMIN_TOKEN`).
+Código de acesso da secretaria (local): `ceu2026`
 
 ## Testes
 ```bash
