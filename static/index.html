@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portal de Informações e Gestão - CEU Aricanduva</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo principal</a>
+
+  <div class="top-accessibility" role="group" aria-label="Atalhos de acessibilidade">
+    <button type="button" id="btn-contraste" aria-pressed="false">Alto contraste</button>
+    <button type="button" id="btn-fonte-mais">A+<span class="sr-only"> Aumentar texto</span></button>
+    <button type="button" id="btn-fonte-menos">A-<span class="sr-only"> Diminuir texto</span></button>
+  </div>
+
+  <header>
+    <h1>CEU Aricanduva - Portal Comunitário</h1>
+  </header>
+
+  <nav aria-label="Menu principal">
+    <ul>
+      <li><a href="#comunicados">Avisos escolares</a></li>
+      <li><a href="#agenda-cultural">Agenda cultural e Spcine</a></li>
+      <li><a href="#cadastro-municipe">Cadastro do munícipe</a></li>
+    </ul>
+  </nav>
+
+  <main id="conteudo" tabindex="-1">
+    <section id="comunicados" aria-labelledby="titulo-comunicados">
+      <h2 id="titulo-comunicados">Avisos importantes das unidades escolares</h2>
+      <p class="nota">Avisos publicados pelas unidades.</p>
+      <div class="grade" id="lista-avisos" aria-live="polite"><p>Carregando avisos...</p></div>
+    </section>
+
+    <section id="agenda-cultural" aria-labelledby="titulo-agenda">
+      <h2 id="titulo-agenda">Agenda cultural e Spcine</h2>
+      <p class="nota">Programação dos equipamentos culturais.</p>
+      <div class="grade" id="lista-eventos" aria-live="polite"><p>Carregando agenda...</p></div>
+    </section>
+
+    <section id="cadastro-municipe" aria-labelledby="titulo-cadastro">
+      <h2 id="titulo-cadastro">Cadastro unificado do frequentador</h2>
+      <p class="nota">Os dados são gravados no banco de dados do portal (protótipo acadêmico).</p>
+      <form id="form-cadastro" novalidate>
+        <div class="campo">
+          <label for="nome-completo">Nome completo</label>
+          <input type="text" id="nome-completo" name="nome" autocomplete="name" required aria-describedby="erro-nome">
+          <p class="erro" id="erro-nome" hidden></p>
+        </div>
+        <div class="campo">
+          <label for="cpf-municipe">CPF</label>
+          <input type="text" id="cpf-municipe" name="cpf" inputmode="numeric" maxlength="14"
+                 autocomplete="off" required aria-describedby="ajuda-cpf erro-cpf">
+          <p class="ajuda" id="ajuda-cpf">Somente números. Exemplo: 000.000.000-00</p>
+          <p class="erro" id="erro-cpf" hidden></p>
+        </div>
+        <div class="campo campo-check">
+          <input type="checkbox" id="consentimento" name="consentimento" required aria-describedby="erro-consent">
+          <label for="consentimento">Autorizo o uso dos meus dados para o cadastro, conforme a Lei Geral de Proteção de Dados (Lei nº 13.709/2018).</label>
+          <p class="erro" id="erro-consent" hidden></p>
+        </div>
+        <button type="submit" class="btn-primary">Cadastrar munícipe</button>
+        <p id="status-form" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+    <section id="area-secretaria" aria-labelledby="titulo-secretaria">
+      <h2 id="titulo-secretaria">Área da secretaria: publicar aviso</h2>
+      <p class="nota">Uso restrito. Exige o código de acesso da unidade.</p>
+      <form id="form-aviso" novalidate>
+        <div class="campo"><label for="av-token">Código de acesso</label>
+          <input type="password" id="av-token" autocomplete="off" required></div>
+        <div class="campo"><label for="av-unidade">Unidade</label>
+          <input type="text" id="av-unidade" required></div>
+        <div class="campo"><label for="av-titulo">Título</label>
+          <input type="text" id="av-titulo" required></div>
+        <div class="campo"><label for="av-texto">Texto do aviso</label>
+          <input type="text" id="av-texto" required></div>
+        <button type="submit" class="btn-primary">Publicar aviso</button>
+        <p id="status-aviso" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>Protótipo acadêmico - Projeto Integrador UNIVESP, Polo CEU Aricanduva, 2026.</p>
+  </footer>
+</body>
+</html>
